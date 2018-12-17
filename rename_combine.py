@@ -33,9 +33,9 @@ for f in newfiles:
 
 for i,b in enumerate(base_list):
 	print('{} of {}'.format(i,len(base_list)))
-	filtered_files = ["{}/{}".format(path,f) for f in newfiles if b in f]
+	filtered_files = sorted(["{}/{}".format(path,f) for f in newfiles if b in f])
 	outfile = '{}/combined/{}.pdf'.format(path,b)
-	filtered_String = ' '.join(filtered_files)
+	filtered_String = ' '.join(sorted(filtered_files))
 	command = "gs -q -dNOPAUSE -sDEVICE=pdfwrite -sOUTPUTFILE={} -dBATCH {}".format(outfile, filtered_String)
 	# print(filtered_String)
 	# print(command)
